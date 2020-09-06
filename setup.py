@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 setup(name='Tool4ASN',
-      version='0.0.3',
+      version='0.0.4',
       description='Python module able to download a file from FTP and subset it using time-range,bounding-box,variables and depths',
       long_description=long_description,
       long_description_content_type='text/markdown',
