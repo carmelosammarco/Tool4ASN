@@ -35,12 +35,21 @@ def main(args=None):
     
     window = Tk()
 
-    window.title("Tool4ASN-by_Carmelo_Sammarco")
+    window.title("Tool4ASN")
     #window.geometry('500x600')
 
-    def ASN():
-        print ("Test")
+    def inputfile1():
+        inputfile1.file = filedialog.askopenfilename()
 
+    def inputfile2():
+        inputfile2.file = filedialog.askopenfilename()
+
+    def inputdir():
+        inputdir.dir = filedialog.askdirectory()
+
+
+    def ASN():
+        print ("TEST")
 
 
     #######################
@@ -62,10 +71,19 @@ def main(args=None):
     space = Label(window, text="")
     space.grid(column=1, row=2)
     ##
-    
-    
+    Input1 = Button(window, text="Station-1", bg="yellow", command=inputfile1)
+    Input1.grid(column=0, row=3)
+    ##
+    Input2 = Button(window, text="Station-2", bg="yellow", command=inputfile2)
+    Input2.grid(column=1, row=3)
+    ##
+    space = Label(window, text="")
+    space.grid(column=0, row=4)
+    space = Label(window, text="")
+    space.grid(column=1, row=4)
+    ##
     btn1 = Button(window, text="Download", bg="red", command=ASN)
-    btn1.grid(column=0, row=23)
+    btn1.grid(column=0, row=5)
     
 
     #################################################################
