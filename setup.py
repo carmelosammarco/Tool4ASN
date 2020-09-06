@@ -39,7 +39,7 @@ setup(name='Tool4ASN',
       classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Science/Research',
-        'Topic :: Scientific/Interferometry/ASN',
+        'Topic :: Scientific',
         'Programming Language :: Python :: 3.6',
        ], 
 
