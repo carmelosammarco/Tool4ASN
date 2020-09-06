@@ -30,16 +30,17 @@ from tkinter import messagebox
 from tkinter import ttk
 from tkinter import scrolledtext
 
+import os
+import json
 
 def main(args=None):
     
     window = Tk()
-
     window.title("Tool4ASN")
     #window.geometry('500x600')
 
     def inputfile1():
-        inputfile1.file = filedialog.askopenfilename()
+        inputfile1.file = filedialog.askopenfilename() 
 
     def inputfile2():
         inputfile2.file = filedialog.askopenfilename()
@@ -48,8 +49,49 @@ def main(args=None):
         inputdir.dir = filedialog.askdirectory()
 
 
+
+
+
     def ASN():
-        print ("TEST")
+        ################
+        #LOGINs
+        ###############
+        filejason =  pkg_resources.resource_filename('Tool4ASN', 'SRC/Users_Database.json')
+
+        Usr = StringVar()
+        Pass = StringVar()
+
+        Utente = ["Carmelo_Sammarco"]
+
+        Database = {}
+        with open (filejason, "r") as login_file:
+            Database = json.load(login_file)
+            for Utente in Database.keys(): 
+                print(Utente)
+                    
+                listdic = Database.get(Utente) 
+                print(listdic)
+
+                Usr= listdic[0] 
+                Pass = listdic[1]
+
+                print (Usr)  
+                print (Pass)  
+
+        #########################
+
+
+
+        outpath = str(os.getcwd())
+
+        path0 = os.path.join(outpath, "Results")
+
+        if not os.path.exists(path0):
+            os.mkdir(path0) 
+        
+        print (inputfile1.file)
+        print (inputfile2.file)
+
 
 
     #######################
@@ -82,7 +124,7 @@ def main(args=None):
     space = Label(window, text="")
     space.grid(column=1, row=4)
     ##
-    btn1 = Button(window, text="Download", bg="red", command=ASN)
+    btn1 = Button(window, text="START", bg="red", command=ASN)
     btn1.grid(column=0, row=5)
     
 
