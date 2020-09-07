@@ -18,7 +18,7 @@ setup(name='Tool4ASN',
 
       include_package_data=True,
       package_data={
-        'Tool4ASN' : ['SRC/Users_Database.json','IMAGES/','Script/']
+        'Tool4ASN' : ['SRC/','IMAGES/','Script/']
 
       },
 

@@ -37,6 +37,12 @@ def main(args=None):
     
     window = Tk()
     window.title("Tool4ASN")
+
+    sideFrame = Frame(window)
+    rightFrame = Frame(window)
+    sideFrame.grid(column=0, row=0)
+    rightFrame.grid(column=1, row=0)
+    
     #window.geometry('500x600')
 
     def inputfile1():
@@ -49,83 +55,75 @@ def main(args=None):
         inputdir.dir = filedialog.askdirectory()
 
 
+    def DailyCC():
+
+        #############
+        # OUTput folder DailyCC
+        #############
+        currentpath = str(os.getcwd())
+        output = os.path.join(currentpath, "Daily-CCs")
+        if not os.path.exists(output):
+            os.mkdir(output) 
 
 
 
-    def ASN():
-        ################
-        #LOGINs
-        ###############
-        filejason =  pkg_resources.resource_filename('Tool4ASN', 'SRC/Users_Database.json')
+    def StackCC():
 
-        Usr = StringVar()
-        Pass = StringVar()
-
-        Utente = ["Carmelo_Sammarco"]
-
-        Database = {}
-        with open (filejason, "r") as login_file:
-            Database = json.load(login_file)
-            for Utente in Database.keys(): 
-                print(Utente)
-                    
-                listdic = Database.get(Utente) 
-                print(listdic)
-
-                Usr= listdic[0] 
-                Pass = listdic[1]
-
-                print (Usr)  
-                print (Pass)  
-
-        #########################
+        #############
+        # OUTput folder StackCC
+        #############
+        currentpath = str(os.getcwd())
+        output = os.path.join(currentpath, "Stack-CCs")
+        if not os.path.exists(output):
+            os.mkdir(output) 
 
 
+    def PlotCCs():
 
-        outpath = str(os.getcwd())
+        #############
+        # OUTput folder PlotCCs
+        #############
+        currentpath = str(os.getcwd())
+        output = os.path.join(currentpath, "Plot-CCs")
+        if not os.path.exists(output):
+            os.mkdir(output) 
 
-        path0 = os.path.join(outpath, "Results")
-
-        if not os.path.exists(path0):
-            os.mkdir(path0) 
         
-        print (inputfile1.file)
-        print (inputfile2.file)
-
-
-
-    #######################
+        
+    
+    ###############
     #GUI interface
-    #######################
+    ###############
    
-    Username = Label(window, text="Username")
-    Username.grid(column=0, row=0)
-    User = Entry(window, width=13)
-    User.grid(column=0, row=1)
+    #Username = Label(window, text="Username")
+    #Username.grid(column=0, row=0)
+    #User = Entry(window, width=13)
+    #User.grid(column=0, row=1)
     ##
-    Password = Label(window, text="Password")
-    Password.grid(column=1, row=0)
-    Pwd = Entry(window, width=13, show="*")
-    Pwd.grid(column=1, row=1)
+    #Password = Label(window, text="Password")
+    #Password.grid(column=1, row=0)
+    #Pwd = Entry(window, width=13, show="*")
+    #Pwd.grid(column=1, row=1)
+
+
+    ##SideFrame
+    Side1 = Button(sideFrame, text="Daily-CCs", bg="yellow", command=DailyCC)
+    Side1.grid(column=0, row=0)
     ##
-    space = Label(window, text="")
-    space.grid(column=0, row=2)
-    space = Label(window, text="")
-    space.grid(column=1, row=2)
+    Side2 = Button(sideFrame, text="Stack-CCs", bg="yellow", command=StackCC)
+    Side2.grid(column=0, row=1)
     ##
-    Input1 = Button(window, text="Station-1", bg="yellow", command=inputfile1)
-    Input1.grid(column=0, row=3)
+    Side3 = Button(sideFrame, text="Plot-CCs", bg="yellow", command=PlotCCs)
+    Side3.grid(column=0, row=2)
+    
+
+    ##RIGHTFRAME
     ##
-    Input2 = Button(window, text="Station-2", bg="yellow", command=inputfile2)
-    Input2.grid(column=1, row=3)
+    inputdirect = Button(rightFrame, text="Input-Dir", bg="yellow", command=inputdir)
+    inputdirect.grid(column=1, row=1)
     ##
-    space = Label(window, text="")
-    space.grid(column=0, row=4)
-    space = Label(window, text="")
-    space.grid(column=1, row=4)
-    ##
-    btn1 = Button(window, text="START", bg="red", command=ASN)
-    btn1.grid(column=0, row=5)
+    
+    
     
 
     #################################################################
