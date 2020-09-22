@@ -119,7 +119,7 @@ def main(args=None):
 
     ##RIGHTFRAME
     ##
-    inputdirect = Button(rightFrame, text="Input-Dir", bg="yellow", command=inputdir)
+    inputdirect = Button(rightFrame, text="Input-Dir", bg="green", command=inputdir)
     inputdirect.grid(column=1, row=1)
     ##
     
